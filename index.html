@@ -5,6 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Paradyne Technologies — Specification Data for Defense Simulation</title>
   <meta name="description" content="Authoritative specification data for defense simulation and training systems. 12,000+ platform, munition, and entity specifications tied to SISO DIS Enumerations.">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://paradyne.tech/">
+  <meta property="og:title" content="Paradyne Technologies — Specification Data for Defense Simulation">
+  <meta property="og:description" content="Authoritative specification data for defense simulation and training systems. 12,000+ platform, munition, and entity specifications tied to SISO DIS Enumerations.">
+  <meta property="og:image" content="https://paradyne.tech/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Paradyne Technologies — Specification Data for Defense Simulation">
+  <meta name="twitter:description" content="Authoritative specification data for defense simulation and training systems. 12,000+ platform, munition, and entity specifications tied to SISO DIS Enumerations.">
+  <meta name="twitter:image" content="https://paradyne.tech/og-image.png">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#1e4d4d">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Literata:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -298,6 +316,19 @@
     .product-card .btn-primary {
       font-size: 0.85rem;
       padding: 0.7rem 1.5rem;
+    }
+
+    .store-badges {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .store-badges a img {
+      display: block;
+      height: 40px;
+      width: auto;
     }
 
     .product-card .btn-outline {
@@ -787,9 +818,9 @@
             <li>Copy dot notation with a tap</li>
             <li>Free on iOS and Android</li>
           </ul>
-          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-            <a href="https://apps.apple.com/app/id6754333997" class="btn-outline" target="_blank" rel="noopener">App Store</a>
-            <a href="https://play.google.com/store/apps/details?id=tech.paradyne.dedictionary" class="btn-outline" target="_blank" rel="noopener">Google Play</a>
+          <div class="store-badges">
+            <a href="https://apps.apple.com/app/id6754333997" target="_blank" rel="noopener" aria-label="Download on the App Store"><img src="/images/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg" alt="Download on the App Store" height="40"></a>
+            <a href="https://play.google.com/store/apps/details?id=tech.paradyne.dedictionary" target="_blank" rel="noopener" aria-label="Get it on Google Play"><img src="/images/GetItOnGooglePlay_Badge_Web_color_English.svg" alt="Get it on Google Play" height="40"></a>
           </div>
         </div>
       </div>
@@ -884,6 +915,11 @@
         <div class="form-group">
           <label for="contact-program">Program Name <span class="optional">(optional)</span></label>
           <input type="text" id="contact-program" name="program">
+        </div>
+        <!-- Honeypot — hidden from real users, bots fill it in -->
+        <div class="form-group" aria-hidden="true" style="position: absolute; left: -9999px; top: -9999px;">
+          <label for="contact-website">Website</label>
+          <input type="text" id="contact-website" name="website" tabindex="-1" autocomplete="off">
         </div>
         <div class="form-group">
           <label for="contact-message">Message</label>

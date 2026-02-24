@@ -26,6 +26,13 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
+  // Honeypot check — hidden field should always be empty for real users
+  const honeypot = req.body?.website;
+  if (honeypot && typeof honeypot === 'string' && honeypot.trim()) {
+    // Silently accept so bot thinks it succeeded
+    return res.status(200).json({ success: true });
+  }
+
   const { name, email, organization, role, program, message } = req.body || {};
 
   // Validate required fields
