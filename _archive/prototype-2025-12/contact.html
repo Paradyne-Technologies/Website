@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Paradyne</title>
+  <meta name="description" content="Get in touch with Paradyne Technologies. Request a pilot, schedule a briefing, or ask us anything about our defense simulation data products.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Literata:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cinnabar: '#722f37',
+            cranberry: '#8b3a44',
+            bearing: '#3d4f5f',
+            steel: '#5a7186',
+            'deep-slate': '#2c3a44',
+            fathom: '#1e4d4d',
+            'near-black': '#1a1f20',
+            graphite: '#4a5258',
+            pewter: '#8a9298',
+            silver: '#c8cccf',
+            'off-white': '#f7f8f8',
+            copper: '#b87333',
+            brass: '#c9a962',
+          },
+          fontFamily: {
+            archivo: ['Archivo', 'system-ui', 'sans-serif'],
+            literata: ['Literata', 'Georgia', 'serif'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- Theme Detection (runs before page render to prevent flash) -->
+  <script>
+    (function() {
+      const stored = localStorage.getItem('theme');
+      if (stored) {
+        document.documentElement.setAttribute('data-theme', stored);
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav fixed top-0 left-0 right-0 z-50">
+    <div class="container mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <a href="index.html" class="nav-logo flex items-center gap-3">
+          <div class="logo-placeholder"></div>
+          <span class="nav-wordmark font-archivo font-semibold text-xl tracking-tight">Paradyne</span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="de-dictionary.html" class="nav-link">DE Dictionary</a>
+          <a href="compendium.html" class="nav-link">Compendium</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="contact.html" class="nav-link active">Contact</a>
+          <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+            <svg class="icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+            <svg class="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+          </button>
+          <a href="contact.html" class="btn btn-primary">Request a Pilot</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="flex items-center gap-4 md:hidden">
+          <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+            <svg class="icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+            <svg class="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+          </button>
+          <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <div id="mobile-menu" class="nav-links md:hidden">
+        <a href="de-dictionary.html" class="nav-link">DE Dictionary</a>
+        <a href="compendium.html" class="nav-link">Compendium</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="contact.html" class="btn btn-primary w-full text-center">Request a Pilot</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero hero-deep-slate min-h-[40vh] flex items-center pt-16">
+    <div class="diagonal-lines"></div>
+    <div class="container mx-auto px-6 py-16 relative z-10">
+      <div class="max-w-3xl">
+        <h1 class="font-archivo text-4xl md:text-5xl font-semibold mb-6 leading-tight">
+          Contact Us
+        </h1>
+        <p class="font-literata text-xl text-silver leading-relaxed">
+          Ready to transform your simulation data infrastructure? Let's talk.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section section-light">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-12">
+        <!-- Contact Form -->
+        <div>
+          <h2 class="font-archivo text-2xl font-semibold mb-6">Send Us a Message</h2>
+
+          <!--
+            FORM INTEGRATION NOTE:
+            This form is currently a visual placeholder. To make it functional, integrate with one of these services:
+
+            1. Formspree (Recommended - easiest setup):
+               - Sign up at https://formspree.io
+               - Create a form and get your endpoint
+               - Change the form action to: action="https://formspree.io/f/YOUR_FORM_ID"
+               - Add method="POST"
+
+            2. Netlify Forms (if hosting on Netlify):
+               - Add netlify attribute to form: <form netlify name="contact">
+               - Netlify automatically handles form submissions
+
+            3. Getform:
+               - Sign up at https://getform.io
+               - Create an endpoint and update form action
+
+            4. Custom Backend:
+               - Build your own endpoint to handle POST requests
+               - Process form data and send emails via SendGrid, Mailgun, etc.
+          -->
+
+          <form class="space-y-6" onsubmit="handleFormSubmit(event)">
+            <!-- Name Field -->
+            <div>
+              <label for="name" class="form-label">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="form-input"
+                placeholder="Your name"
+              >
+            </div>
+
+            <!-- Email Field -->
+            <div>
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="form-input"
+                placeholder="you@company.com"
+              >
+            </div>
+
+            <!-- Organization Field -->
+            <div>
+              <label for="organization" class="form-label">Organization <span class="text-pewter font-normal">(optional)</span></label>
+              <input
+                type="text"
+                id="organization"
+                name="organization"
+                class="form-input"
+                placeholder="Your company or organization"
+              >
+            </div>
+
+            <!-- Interest Field -->
+            <div>
+              <label for="interest" class="form-label">I'm interested in</label>
+              <select id="interest" name="interest" class="form-input">
+                <option value="">Select an option</option>
+                <option value="pilot">90-Day Pilot Program</option>
+                <option value="compendium">Compendium Data Service</option>
+                <option value="de-dictionary">DE Dictionary App</option>
+                <option value="briefing">Schedule a Briefing</option>
+                <option value="general">General Inquiry</option>
+              </select>
+            </div>
+
+            <!-- Message Field -->
+            <div>
+              <label for="message" class="form-label">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                required
+                class="form-input"
+                placeholder="Tell us about your project or questions..."
+              ></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary w-full sm:w-auto">
+              Send Message
+            </button>
+          </form>
+
+          <!-- Form submission message (hidden by default) -->
+          <div id="form-success" class="hidden mt-6 p-4 bg-fathom/10 border border-fathom rounded-lg">
+            <p class="font-archivo font-semibold text-fathom">Thank you for your message!</p>
+            <p class="text-graphite text-sm mt-1">We'll get back to you within 1-2 business days.</p>
+          </div>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="lg:pl-8">
+          <h2 class="font-archivo text-2xl font-semibold mb-6">Other Ways to Reach Us</h2>
+
+          <div class="space-y-8">
+            <!-- Email -->
+            <div>
+              <h3 class="font-archivo font-semibold text-lg mb-2 flex items-center gap-2">
+                <svg class="w-5 h-5 text-cinnabar" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+                Email
+              </h3>
+              <a href="mailto:contact@paradynetech.com" class="text-bearing hover:text-cinnabar transition-colors">
+                contact@paradynetech.com
+              </a>
+            </div>
+
+            <!-- Phone -->
+            <div>
+              <h3 class="font-archivo font-semibold text-lg mb-2 flex items-center gap-2">
+                <svg class="w-5 h-5 text-cinnabar" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                </svg>
+                Phone
+              </h3>
+              <a href="tel:+15551234567" class="text-bearing hover:text-cinnabar transition-colors">
+                +1 (555) 123-4567
+              </a>
+            </div>
+
+            <!-- Response Time -->
+            <div class="pt-6 border-t border-silver">
+              <h3 class="font-archivo font-semibold text-lg mb-2">Response Time</h3>
+              <p class="text-secondary font-literata">
+                We typically respond to inquiries within 1-2 business days. For urgent matters, please call us directly.
+              </p>
+            </div>
+          </div>
+
+          <!-- Pilot Program CTA -->
+          <div class="mt-12 p-6 bg-gradient-to-br from-fathom to-deep-slate rounded-xl text-off-white">
+            <h3 class="font-archivo text-xl font-semibold mb-3">90-Day Pilot Program</h3>
+            <p class="font-literata text-silver mb-4">
+              Experience the full capabilities of Paradyne with your team. Our pilot program includes complete access to Compendium, dedicated onboarding support, and direct access to our engineering team.
+            </p>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-center gap-2 text-sm">
+                <svg class="w-4 h-4 text-brass" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Full Compendium access</span>
+              </li>
+              <li class="flex items-center gap-2 text-sm">
+                <svg class="w-4 h-4 text-brass" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Dedicated onboarding</span>
+              </li>
+              <li class="flex items-center gap-2 text-sm">
+                <svg class="w-4 h-4 text-brass" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Direct engineering support</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section section-gray">
+    <div class="container mx-auto px-6">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-archivo text-3xl font-semibold mb-8 text-center">
+          Frequently Asked Questions
+        </h2>
+
+        <div class="space-y-6">
+          <div class="card">
+            <h3 class="font-archivo font-semibold text-lg mb-2">How does the pilot program work?</h3>
+            <p class="text-secondary font-literata">
+              Our 90-day pilot gives you full access to Compendium to evaluate with your team. We provide dedicated onboarding, help you integrate with your existing workflows, and offer direct access to our engineering team for technical questions. At the end of the pilot, you'll have a clear picture of how Paradyne fits your program's needs.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 class="font-archivo font-semibold text-lg mb-2">What data formats do you support?</h3>
+            <p class="text-secondary font-literata">
+              Compendium data is accessible via RESTful API and can be exported in multiple formats including JSON and XML. We also provide documentation and sample code to help integrate with common simulation frameworks.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 class="font-archivo font-semibold text-lg mb-2">Is DE Dictionary really free?</h3>
+            <p class="text-secondary font-literata">
+              Yes, DE Dictionary is available as a free download on iOS and Android. It's our way of giving back to the simulation community and helping professionals who work with DIS protocols every day.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 class="font-archivo font-semibold text-lg mb-2">How is your data sourced and validated?</h3>
+            <p class="text-secondary font-literata">
+              All Compendium data is tied to official sources with full provenance documentation. Our data team combines automated validation with domain expert review to ensure accuracy. Every record includes source attribution so you can verify and demonstrate compliance during audits.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <!-- Logo & Description -->
+        <div class="md:col-span-2">
+          <a href="index.html" class="flex items-center gap-3 mb-4">
+            <div class="logo-placeholder logo-placeholder-light w-8 h-8"></div>
+            <span class="font-archivo font-semibold text-lg text-off-white tracking-tight">Paradyne</span>
+          </a>
+          <p class="font-literata text-pewter text-sm max-w-md">
+            Authoritative specification data infrastructure for defense simulation and training systems.
+          </p>
+        </div>
+
+        <!-- Products -->
+        <div>
+          <h4 class="font-archivo font-semibold text-off-white mb-4">Products</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="de-dictionary.html">DE Dictionary</a></li>
+            <li><a href="compendium.html">Compendium</a></li>
+          </ul>
+        </div>
+
+        <!-- Company -->
+        <div>
+          <h4 class="font-archivo font-semibold text-off-white mb-4">Company</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-graphite pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-sm text-pewter">
+          &copy; 2025 Paradyne Technologies. All rights reserved.
+        </p>
+        <p class="text-sm text-pewter">
+          DIS enumeration data reproduced with permission from SISO.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('active');
+    }
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    }
+
+    // Listen for OS theme changes (if user hasn't set a preference)
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      if (!localStorage.getItem('theme')) {
+        document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+      }
+    });
+
+    // Placeholder form submission handler
+    // Replace this with actual form submission logic when integrating with a form service
+    function handleFormSubmit(event) {
+      event.preventDefault();
+
+      // Show success message (for demo purposes)
+      // In production, this should only show after successful form submission
+      const form = event.target;
+      const successMessage = document.getElementById('form-success');
+
+      // Simulate form submission
+      form.style.display = 'none';
+      successMessage.classList.remove('hidden');
+
+      // In production, you would:
+      // 1. Gather form data
+      // 2. Submit to your form service (Formspree, Netlify, etc.)
+      // 3. Show success/error message based on response
+    }
+  </script>
+</body>
+</html>

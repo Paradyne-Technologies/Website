@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paradyne | Authoritative Data Infrastructure for Defense Simulation</title>
+  <meta name="description" content="Paradyne Technologies provides authoritative specification data infrastructure for defense simulation and training systems.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Literata:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cinnabar: '#722f37',
+            cranberry: '#8b3a44',
+            bearing: '#3d4f5f',
+            steel: '#5a7186',
+            'deep-slate': '#2c3a44',
+            fathom: '#1e4d4d',
+            'near-black': '#1a1f20',
+            graphite: '#4a5258',
+            pewter: '#8a9298',
+            silver: '#c8cccf',
+            'off-white': '#f7f8f8',
+            copper: '#b87333',
+            brass: '#c9a962',
+          },
+          fontFamily: {
+            archivo: ['Archivo', 'system-ui', 'sans-serif'],
+            literata: ['Literata', 'Georgia', 'serif'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- Theme Detection (runs before page render to prevent flash) -->
+  <script>
+    (function() {
+      const stored = localStorage.getItem('theme');
+      if (stored) {
+        document.documentElement.setAttribute('data-theme', stored);
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav fixed top-0 left-0 right-0 z-50">
+    <div class="container mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <a href="index.html" class="nav-logo flex items-center gap-3">
+          <div class="logo-placeholder"></div>
+          <span class="nav-wordmark font-archivo font-semibold text-xl tracking-tight">Paradyne</span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="de-dictionary.html" class="nav-link">DE Dictionary</a>
+          <a href="compendium.html" class="nav-link">Compendium</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+          <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+            <svg class="icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+            <svg class="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+          </button>
+          <a href="contact.html" class="btn btn-primary">Request a Pilot</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="flex items-center gap-4 md:hidden">
+          <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+            <svg class="icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+            <svg class="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+          </button>
+          <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <div id="mobile-menu" class="nav-links md:hidden">
+        <a href="de-dictionary.html" class="nav-link">DE Dictionary</a>
+        <a href="compendium.html" class="nav-link">Compendium</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="contact.html" class="btn btn-primary w-full text-center">Request a Pilot</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero min-h-screen flex items-center pt-16">
+    <div class="diagonal-lines"></div>
+    <div class="container mx-auto px-6 py-20 relative z-10">
+      <div class="max-w-3xl">
+        <h1 class="font-archivo text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 leading-tight">
+          The Data Foundation for Defense Simulation
+        </h1>
+        <p class="font-literata text-xl md:text-2xl text-silver mb-8 leading-relaxed">
+          Authoritative specification data infrastructure that the entire defense simulation industry can depend on.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="contact.html" class="btn btn-light">Request a Pilot</a>
+          <a href="#products" class="btn btn-outline-light">Explore Products</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem Statement Section -->
+  <section class="section section-light">
+    <div class="container mx-auto px-6">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="font-archivo text-3xl md:text-4xl font-semibold mb-6 text-bearing">
+          The Problem We Solve
+        </h2>
+        <p class="font-literata text-lg text-secondary leading-relaxed">
+          Federated defense simulations suffer from inconsistent, manually-compiled datasets. Programs spend months on Knowledge Acquisition, piecing together data from fragmented sources and subject matter experts. The result? Interoperability issues, audit failures, and wasted resources.
+        </p>
+      </div>
+
+      <div class="mt-16 grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="stat-number">Months</div>
+          <div class="stat-label">Typical Knowledge Acquisition timeline</div>
+        </div>
+        <div class="text-center">
+          <div class="stat-number">Fragmented</div>
+          <div class="stat-label">Data sources across the industry</div>
+        </div>
+        <div class="text-center">
+          <div class="stat-number">Critical</div>
+          <div class="stat-label">Impact on simulation accuracy</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products" class="section section-gray">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="font-archivo text-3xl md:text-4xl font-semibold mb-4">Our Products</h2>
+        <p class="font-literata text-lg text-secondary max-w-2xl mx-auto">
+          Purpose-built tools and data services for defense simulation professionals.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8">
+        <!-- DE Dictionary Card -->
+        <div class="card group">
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-12 h-12 bg-fathom rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-off-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-archivo text-2xl font-semibold mb-2">DE Dictionary</h3>
+              <p class="text-pewter font-archivo text-sm">Mobile Reference App</p>
+            </div>
+          </div>
+          <p class="font-literata text-secondary mb-6">
+            The complete DIS enumeration specification in your pocket. Built for systems engineers, DBAs, developers, and technicians who need fast, accurate lookups without searching through PDFs.
+          </p>
+          <ul class="feature-list text-secondary mb-6">
+            <li>Complete DIS enumeration database</li>
+            <li>Intelligent search and filtering</li>
+            <li>Offline functionality</li>
+            <li>iOS and Android</li>
+          </ul>
+          <a href="de-dictionary.html" class="btn btn-secondary">Learn More</a>
+        </div>
+
+        <!-- Compendium Card -->
+        <div class="card group">
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-12 h-12 bg-cinnabar rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-off-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-archivo text-2xl font-semibold mb-2">Compendium</h3>
+              <p class="text-pewter font-archivo text-sm">Authoritative Data Service</p>
+            </div>
+          </div>
+          <p class="font-literata text-secondary mb-6">
+            Detailed specifications for military platforms, munitions, personnel, and supplies. Tied to official SISO DIS Enumerations with full provenance documentation for audit compliance.
+          </p>
+          <ul class="feature-list text-secondary mb-6">
+            <li>8,000+ platform records</li>
+            <li>3,900+ munition records</li>
+            <li>Full provenance documentation</li>
+            <li>SISO DIS Enumeration alignment</li>
+          </ul>
+          <a href="compendium.html" class="btn btn-secondary">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Paradyne Section -->
+  <section class="section section-fathom">
+    <div class="geo-pattern"></div>
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="max-w-3xl">
+        <h2 class="font-archivo text-3xl md:text-4xl font-semibold mb-8">
+          Why Paradyne
+        </h2>
+        <div class="space-y-6">
+          <div class="flex gap-4">
+            <div class="w-1 bg-brass flex-shrink-0"></div>
+            <div>
+              <h3 class="font-archivo text-xl font-semibold mb-2">Authoritative Data</h3>
+              <p class="font-literata text-silver">
+                Every record tied to official sources with full provenance. Built for environments where accuracy isn't optional.
+              </p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="w-1 bg-brass flex-shrink-0"></div>
+            <div>
+              <h3 class="font-archivo text-xl font-semibold mb-2">Audit-Ready</h3>
+              <p class="font-literata text-silver">
+                Complete documentation chain from source to specification. Pass audits with confidence.
+              </p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="w-1 bg-brass flex-shrink-0"></div>
+            <div>
+              <h3 class="font-archivo text-xl font-semibold mb-2">Industry Standard</h3>
+              <p class="font-literata text-silver">
+                Built on SISO DIS standards. Designed for interoperability across federated simulation environments.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section section-light">
+    <div class="container mx-auto px-6">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="font-archivo text-3xl md:text-4xl font-semibold mb-6">
+          Start Your 90-Day Pilot
+        </h2>
+        <p class="font-literata text-lg text-secondary mb-8">
+          See how Paradyne can transform your simulation data infrastructure. Our pilot program gives you full access to evaluate our platform with your team.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="contact.html" class="btn btn-primary">Request a Pilot</a>
+          <a href="contact.html" class="btn btn-secondary">Schedule a Briefing</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <!-- Logo & Description -->
+        <div class="md:col-span-2">
+          <a href="index.html" class="flex items-center gap-3 mb-4">
+            <div class="logo-placeholder logo-placeholder-light w-8 h-8"></div>
+            <span class="font-archivo font-semibold text-lg text-off-white tracking-tight">Paradyne</span>
+          </a>
+          <p class="font-literata text-pewter text-sm max-w-md">
+            Authoritative specification data infrastructure for defense simulation and training systems.
+          </p>
+        </div>
+
+        <!-- Products -->
+        <div>
+          <h4 class="font-archivo font-semibold text-off-white mb-4">Products</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="de-dictionary.html">DE Dictionary</a></li>
+            <li><a href="compendium.html">Compendium</a></li>
+          </ul>
+        </div>
+
+        <!-- Company -->
+        <div>
+          <h4 class="font-archivo font-semibold text-off-white mb-4">Company</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-graphite pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-sm text-pewter">
+          &copy; 2025 Paradyne Technologies. All rights reserved.
+        </p>
+        <p class="text-sm text-pewter">
+          DIS enumeration data reproduced with permission from SISO.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('active');
+    }
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    }
+
+    // Listen for OS theme changes (if user hasn't set a preference)
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      if (!localStorage.getItem('theme')) {
+        document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+      }
+    });
+  </script>
+</body>
+</html>
